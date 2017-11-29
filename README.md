@@ -1,1 +1,43 @@
-Word - Project 2
+# cumulus - David Azaria / December 2017
+
+## What is cumulus?
+
+Our world is a rather interconnected place these days - probably more so than we sometimes acknowledge or like to. But throughought this figurative web of a modern, largely-shared singular global culture, there are moments and scenarios that speak to some of our own idiosyncracies and relative isolation. For example, whether it be as micro as an personal experience you yourself have, or as macro as a disagreement leading to a revelation of some culutral faux pas, those moments and scenarios remind us that we are not just one species on one planet, but also a world of seven billion people, living in 195 countries, across twenty-four timezones, and on seven different continents. 
+
+And in examining this binning of a world made up of different experiences, the news - and more specifically what even makes the news to begin with - is something that best accentuates the notion that we do continue to remain isolated in what we deem important to consume. Of course there are moments of tragic or, more hopefully, joyous world events which bring the world together; however, it is often the case what makes for news in Germany might not be the case in India; South Korea and not South Africa; and, an extreme example perhaps, is something reported as a big deal in North Carolina, while emitting the faintest of blips in neighboring South Carolina.  
+
+The aim of this application is to graphically display to a user word clouds - hence "cumulus" - of what are the current top headlines on a national level. With a sprinkle of some data science, a few third party API calls, and a healthy dose of JavaScript and its far extending remit of libraries, I hope to provide a user an interesting and easy-to-digest example of our undying unique set of experiences. 
+
+## My wireframe
+
+Wireframe can be found in the project repo, file labeled "word - Project 2.pdf".
+
+## My initial thoughts on app structure
+
+Currently the way I think about this is a user will provide some details to log-in to the app, allowing them to store their searches in our cumulus search database. It might not (yet) be appropriately stored in the cloud - maybe one day it will be! - but for now I do want to offer the user the ability to store what they learned is important where and when.  
+
+By connecting to the Google Charts API, I will offer the user a dynamic display of nations for whom I have news sources/headlines. And by clicking France, for example, they will generate a word cloud of the most important - definition TBD - words to be displayed via a word cloud. There appears to be some packages which allow for this, but will continue looking into the best, easy-to-use solution.
+
+As for the headlines, newsapi.org 
+
+## How it works
+
+TKTK
+
+## Phases to completion
+
+Phase 1: Wireframming and story writing. **Due Wednesday November 29**
+
+Phase 2: Minimum viable product, which will consist of: basic API calls, Heroku Deployment, Routes, SQL table creations, and progress on the word cloud technolocy **Due Friday December 1**
+
+Phase 3: Feature writing. **Due Saturday December 2**
+
+Phase 4: Feature writing. **Due Sunday December 3** 
+
+Phase 5: Feature writing and issues/bugs. **Due Monday December 4**
+
+**Presentation** **Tuesday December 5**
+
+## Links and Resources
+
+TKTK
