@@ -1,0 +1,14 @@
+<% include ./partials/header.ejs %>
+
+<div>
+  <h1><%= message %></h1>
+  <h2><%= documentTitle %></h2>
+  <h3><%= subTitle %></h3>
+</div>
+<% if (showMore === true) { %>
+  <div class='more'>
+    <p>test</p>
+  </div>
+<% } %>
+
+<% include ./partials/footer.ejs %>
