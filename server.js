@@ -29,7 +29,7 @@ app.use(methodOverride('_method'));
 
 /* ROUTES */
 
-app.use('./cumulus-api', cumulusAPI);
+app.use('/cumulus-api', cumulusAPI);
 
 /*
   HOME route
