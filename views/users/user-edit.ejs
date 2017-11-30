@@ -1,0 +1,13 @@
+<% include ../partials/header %>
+
+<form method="POST" action="/users/<%= user.id %>?_method=PUT">
+
+  <input name="id" type="hidden" value="<%= user.id %>">
+
+  <input name="username" type="text" value="<%= user.username %>" />
+  <input name="password" type="text" value="<%= user.password %>" />
+  <input name="fullname" type="text" value="<%= user.fullname %>" />
+  <input type="submit" value="edit cumulus user" />
+</form>
+
+<% include ../partials/footer %>

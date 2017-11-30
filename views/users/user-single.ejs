@@ -1,0 +1,14 @@
+<% include ../partials/header %>
+
+<div class='user'>
+  <h1><%= user.username %></h1>
+  <h3><%= user.password %></h3>
+  <h3><%= user.fullname %></h3>
+  <a href="/users/<%= user.id %>/edit"> edit this cumulus user </a>
+  <form action="/users/<%= user.id %>?_method=Delete" method="Post">
+    <input type="Submit" value="Delete"/>
+  </form>
+  <a href='/users/'>see all cumulus users</a>
+</div>
+
+<% include ../partials/footer %>

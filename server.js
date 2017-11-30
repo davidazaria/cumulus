@@ -1,4 +1,3 @@
-/* Required resources always go first */
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
@@ -6,6 +5,7 @@ const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 
 const cumulusAPI = require('./cumulus-api');
+const usersRouter = require('./routes/userRoutes');
 
 /* create a PORT that checks the process.env or defaults to 3000 */
 const PORT = process.env.PORT || 3000;
@@ -28,12 +28,10 @@ app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 
 /* ROUTES */
-
+app.use('/users', usersRouter);
 app.use('/cumulus-api', cumulusAPI);
 
-/*
-  HOME route
-*/
+
 app.get('/', (req, res) => {
   res.render('index', {
     message:

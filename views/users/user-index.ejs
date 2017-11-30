@@ -1,0 +1,14 @@
+<% include ../partials/header %>
+
+<a href="/users/new">add new cumulus user</a>
+
+<% for (let user of users) { %>
+  <div class='user'>
+    <p><%= user.username %></p>
+    <p><%= user.password %></p>
+    <p><%= user.fullname %></p>
+    <a href='/users/<%= user.id%>'>learn more about cumulus user</a>
+  </div>
+<% } %>
+
+<% include ../partials/footer %>
