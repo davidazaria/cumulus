@@ -4,9 +4,8 @@
 const express = require('express');
 
 // we'll need either request or axis to make promise-based requests
-const axios = require('axios');
-
 const cumulusAPI = express.Router();
+const axios = require('axios');
 
 // hit the API and get back an array of results
 

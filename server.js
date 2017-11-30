@@ -36,10 +36,14 @@ app.use('./cumulus-api', cumulusAPI);
 */
 app.get('/', (req, res) => {
   res.render('index', {
-    message:       'cumulus!',
-    documentTitle: 'welcome to cumulus',
-    subTitle:      'a cloud news site',
-    showMore:      false,
+    message:
+    'cumulus!',
+    documentTitle:
+    'welcome to cumulus',
+    subTitle:
+    'a cloud news site',
+    showMore:
+    false,
   });
 });
 
