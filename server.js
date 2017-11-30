@@ -37,7 +37,7 @@ app.use('./cumulus-api', cumulusAPI);
 app.get('/', (req, res) => {
   res.render('index', {
     message:
-    'cumulus!',
+    'cumulus',
     documentTitle:
     'welcome to cumulus',
     subTitle:

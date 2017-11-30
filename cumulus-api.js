@@ -6,15 +6,11 @@ const express = require('express');
 // we'll need either request or axis to make promise-based requests
 const cumulusAPI = express.Router();
 const axios = require('axios');
+const APIKEY = process.env.APIKEY;
 
 // hit the API and get back an array of results
 
-axios.get('https://newsapi.org/v2/top-headlines', {
-  params: {
-    language: 'en',
-    apiKey: 'dff425d1b8754d858c7751c7331e3e0f',
-  },
-})
+axios.get(`https://newsapi.org/v2/top-headlines?language=en&apiKey=${APIKEY}`)
   /* grab the articles from the response data */
   .then(({ data: { articles } }) => {
     /* slice the articles into a manageable size  */
@@ -24,7 +20,7 @@ axios.get('https://newsapi.org/v2/top-headlines', {
     // map over the array of Urls, invoke axios.get for each,
     // wrap the whole thing in Promise.all
     // we'll get back an array of pending promises
-    // debugger;
+    debugger;
     return Promise.all(description.map(description => axios.get(description)));
   })
 
