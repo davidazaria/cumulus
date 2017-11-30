@@ -21,6 +21,7 @@
     "logger": "0.0.1",
     "method-override": "^2.3.10",
     "morgan": "^1.9.0",
+    "natural": "^0.5.4",
     "nodemon": "^1.12.1",
     "path": "^0.12.7"
   },
