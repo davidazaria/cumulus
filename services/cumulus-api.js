@@ -26,7 +26,7 @@ function hitAxios(req, res, next) {
   /* grab the articles from the response data */
     .then(({ data: { articles } }) => {
     /* slice the articles into a manageable size  */
-      const tfidfMatrix = articles.slice(1, 700)
+      const tfidfMatrix = articles.slice(1, 3)
       /* map over and extract only the description from each article */
         .map(({ description, title }) => title + description);
       res.locals.tfidfMatrix = tfidfMatrix;
@@ -47,7 +47,11 @@ function tokenizeData(req, res, next) {
 }
 
 function stemData(req, res, next) {
-  const allStemmed = res.locals.allTokenized.reduce((acc, val) => {
+  const sw = require('stopword');
+  const oldTokenized = res.locals.allTokenized;
+  const newTokenized = sw.removeStopwords(oldTokenized);
+  res.locals.newTokenized = newTokenized;
+  const allStemmed = res.locals.newTokenized.reduce((acc, val) => {
     return acc.concat(natural.PorterStemmer.stem(val));
   }, []);
   res.locals.allStemmed = allStemmed;
@@ -56,8 +60,8 @@ function stemData(req, res, next) {
   debugger;
 }
 
-// function tfidfData(req, res, next) {
-//   const allTFIDF = res.locals.allStemmed.reduce((acc, val) => {
+// function swData(req, res, next) {
+//   const allSW = res.locals.allStemmed.reduce((acc, val) => {
 //     return acc.concat(tfidf.addDocument(val));
 //   }, []);
 //   res.locals.allTFIDF = allTFIDF;
@@ -72,6 +76,6 @@ function stemData(req, res, next) {
 //   }, natural.tfidf);
 // }
 
-router.get('/', hitAxios, tokenizeData, stemData /* tfidfData */);
+router.get('/', hitAxios, tokenizeData, stemData/* tfidfData */);
 
 module.exports = router;
