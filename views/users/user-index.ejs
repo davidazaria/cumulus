@@ -4,9 +4,9 @@
 
 <% for (let user of users) { %>
   <div class='user'>
-    <p><%= user.username %></p>
-    <p><%= user.password %></p>
-    <p><%= user.fullname %></p>
+    <p>username: <%= user.username %></p>
+    <p>password: <%= user.password %></p>
+    <p>fullname: <%= user.fullname %></p>
     <a href='/users/<%= user.id%>'>learn more about cumulus user</a>
   </div>
 <% } %>

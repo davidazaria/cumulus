@@ -12,7 +12,7 @@ module.exports = {
   },
 
   getOne(req, res, next) {
-  userDB.findById(req.params.id)
+    userDB.findById(req.params.id)
       .then((user) => {
         res.locals.user = user;
         next();
