@@ -4,7 +4,7 @@ const logger = require('morgan');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 
-const cumulusAPI = require('./cumulus-api');
+const cumulusAPI = require('./services/cumulus-api');
 const usersRouter = require('./routes/userRoutes');
 
 /* create a PORT that checks the process.env or defaults to 3000 */
