@@ -5,7 +5,6 @@ const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 
 const cumulusAPI = require('./services/cumulus-api');
-// const cumulusDS = require('./services/cumulus-ds');
 const usersRouter = require('./routes/userRoutes');
 
 /* create a PORT that checks the process.env or defaults to 3000 */
@@ -33,7 +32,6 @@ app.use(methodOverride('_method'));
 /* ROUTES */
 app.use('/users', usersRouter);
 app.use('/cumulus-api', cumulusAPI);
-// app.use('/cumulus-ds', cumulusDS);
 
 app.get('/', (req, res) => {
   res.render('index', {

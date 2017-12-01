@@ -1,15 +1,17 @@
 /**
- * @author Jason Seminara!
+ * @author Jason Seminara & David Azaria :)
  */
 require('dotenv').config();
 const express = require('express');
 
-// we'll need either request or axis to make promise-based requests
 const router = express.Router();
 const axios = require('axios');
 const natural = require('natural');
 
 const tokenizer = new natural.WordTokenizer();
+
+const TfIdf = natural.TfIdf;
+const tfidf = new TfIdf();
 
 const apikey = process.env.APIKEY;
 // hit the API and get back an array of results
@@ -24,7 +26,7 @@ function hitAxios(req, res, next) {
   /* grab the articles from the response data */
     .then(({ data: { articles } }) => {
     /* slice the articles into a manageable size  */
-      const tfidfMatrix = articles.slice(1, 100)
+      const tfidfMatrix = articles.slice(1, 5)
       /* map over and extract only the description from each article */
         .map(({ description, title }) => title + description);
       res.locals.tfidfMatrix = tfidfMatrix;
@@ -38,33 +40,37 @@ function tokenizeData(req, res, next) {
   const allTokenized = res.locals.tfidfMatrix.reduce((acc, val) => {
     return acc.concat(tokenizer.tokenize(val));
   }, []);
-  console.log(allTokenized);
   res.locals.allTokenized = allTokenized;
-  // res.json(allTokenized);
   next();
+  debugger;
 }
 
 function stemData(req, res, next) {
   const allStemmed = res.locals.allTokenized.reduce((acc, val) => {
     return acc.concat(natural.PorterStemmer.stem(val));
   }, []);
-  console.log(allStemmed);
   res.locals.allStemmed = allStemmed;
-  res.json(allStemmed);
+  // res.json(allStemmed);
   next();
+  debugger;
 }
 
-
-//   /* TODO []: tokenize, stem, and then rejoining as a new document */
+function tfidfData(req, res, next) {
+  const allTFIDF = res.locals.allStemmed.reduce((acc, val) => {
+    return acc.concat(tfidf.addDocument(val));
+  }, []);
+  res.locals.allTFIDF = allTFIDF;
+  console.log(tfidf.tfidf(allTFIDF, 1));
+  res.json(res.locals.allTFIDF);
+  next();
+}
 
 //   .reduce((t, doc) => {
 //     t.addDocument(doc);
 //     return t;
 //   }, natural.tfidf);
-// // return ()
-// console.log(tokenizer.tokenize(tfidfMatrix));
-// res.json(tfidfMatrix);
+// }
 
-router.get('/', hitAxios, tokenizeData, stemData);
+router.get('/', hitAxios, tokenizeData, stemData, tfidfData);
 
 module.exports = router;
