@@ -10,8 +10,8 @@ const natural = require('natural');
 
 const tokenizer = new natural.WordTokenizer();
 
-const TfIdf = natural.TfIdf;
-const tfidf = new TfIdf();
+// const TfIdf = natural.TfIdf;
+// const tfidf = new TfIdf();
 
 const apikey = process.env.APIKEY;
 // hit the API and get back an array of results
@@ -26,7 +26,7 @@ function hitAxios(req, res, next) {
   /* grab the articles from the response data */
     .then(({ data: { articles } }) => {
     /* slice the articles into a manageable size  */
-      const tfidfMatrix = articles.slice(1, 5)
+      const tfidfMatrix = articles.slice(1, 700)
       /* map over and extract only the description from each article */
         .map(({ description, title }) => title + description);
       res.locals.tfidfMatrix = tfidfMatrix;
@@ -41,6 +41,7 @@ function tokenizeData(req, res, next) {
     return acc.concat(tokenizer.tokenize(val));
   }, []);
   res.locals.allTokenized = allTokenized;
+  // res.json(allTokenized);
   next();
   debugger;
 }
@@ -50,20 +51,20 @@ function stemData(req, res, next) {
     return acc.concat(natural.PorterStemmer.stem(val));
   }, []);
   res.locals.allStemmed = allStemmed;
-  // res.json(allStemmed);
+  res.json(allStemmed);
   next();
   debugger;
 }
 
-function tfidfData(req, res, next) {
-  const allTFIDF = res.locals.allStemmed.reduce((acc, val) => {
-    return acc.concat(tfidf.addDocument(val));
-  }, []);
-  res.locals.allTFIDF = allTFIDF;
-  console.log(tfidf.tfidf(allTFIDF, 1));
-  res.json(res.locals.allTFIDF);
-  next();
-}
+// function tfidfData(req, res, next) {
+//   const allTFIDF = res.locals.allStemmed.reduce((acc, val) => {
+//     return acc.concat(tfidf.addDocument(val));
+//   }, []);
+//   res.locals.allTFIDF = allTFIDF;
+//   console.log(tfidf.tfidf(allTFIDF, 1));
+//   res.json(res.locals.allTFIDF);
+//   next();
+// }
 
 //   .reduce((t, doc) => {
 //     t.addDocument(doc);
@@ -71,6 +72,6 @@ function tfidfData(req, res, next) {
 //   }, natural.tfidf);
 // }
 
-router.get('/', hitAxios, tokenizeData, stemData, tfidfData);
+router.get('/', hitAxios, tokenizeData, stemData /* tfidfData */);
 
 module.exports = router;
