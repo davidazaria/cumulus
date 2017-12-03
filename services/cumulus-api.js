@@ -89,12 +89,14 @@ function sortWords(req, res, next) {
   }
   const list = res.locals.sumWords;
   const newarr = sortObject(list);
-  const slicedArr = newarr.slice(1, 21);
+  const slicedArr = newarr.slice(1, 31);
   res.locals.sortedWords = slicedArr;
   res.send(slicedArr);
   next();
   debugger;
 }
+
+
 
 router.get('/', hitAxios, tokenizeData, stopWords, sumWords, sortWords);
 

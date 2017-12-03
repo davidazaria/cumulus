@@ -28,7 +28,9 @@
     "nodemon": "^1.12.1",
     "path": "^0.12.7",
     "pg-promise": "^7.3.2",
-    "stopword": "^0.1.9"
+    "stopword": "^0.1.9",
+    "vuewordcloud": "^17.10.27",
+    "wordcloud": "^1.0.6"
   },
   "devDependencies": {
     "eslint-config-airbnb-base": "^12.1.0",
