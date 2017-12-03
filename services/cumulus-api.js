@@ -23,10 +23,10 @@ function hitAxios(req, res, next) {
   /* grab the articles from the response data */
     .then(({ data: { articles } }) => {
     /* slice the articles into a manageable size  */
-      const tfidfMatrix = articles.slice(1, 500)
+      const matrix = articles.slice(1, 901)
       /* map over and extract only the description from each article */
         .map(({ description, title }) => title + description);
-      res.locals.tfidfMatrix = tfidfMatrix;
+      res.locals.matrix = matrix;
       next();
     })
     .catch(err => res.send(err));
@@ -34,7 +34,7 @@ function hitAxios(req, res, next) {
 }
 
 function tokenizeData(req, res, next) {
-  const allTokenized = res.locals.tfidfMatrix.reduce((acc, val) => {
+  const allTokenized = res.locals.matrix.reduce((acc, val) => {
     return acc.concat(tokenizer.tokenize(val));
   }, []);
   res.locals.allTokenized = allTokenized;
@@ -42,7 +42,7 @@ function tokenizeData(req, res, next) {
   debugger;
 }
 
-function stemData(req, res, next) {
+function stopWords(req, res, next) {
   const sw = require('stopword');
   const oldTokenized = res.locals.allTokenized;
   const newTokenized = sw.removeStopwords(oldTokenized);
@@ -51,26 +51,51 @@ function stemData(req, res, next) {
     return acc.concat(natural.PorterStemmer.stem(val));
   }, []);
   res.locals.allStemmed = allStemmed;
-  // res.json(allStemmed);
   next();
   debugger;
 }
 
 function sumWords(req, res, next) {
-  const wordArr = res.locals.allStemmed;
-  const newObj = {};
-  for (let i = 0, j = wordArr.length; i < j; i++) {
-    if (newObj[wordArr[i]]) {
-      newObj[wordArr[i]]++;
+  const wordArray = res.locals.allStemmed;
+  const newObject = {};
+  for (let i = 0, j = wordArray.length; i < j; i++) {
+    if (newObject[wordArray[i]]) {
+      newObject[wordArray[i]]++;
     } else {
-      newObj[wordArr[i]] = 1;
+      newObject[wordArray[i]] = 1;
     }
   }
-  res.json(newObj);
+  res.locals.sumWords = newObject;
   next();
   debugger;
 }
 
-router.get('/', hitAxios, tokenizeData, stemData, sumWords);
+function sortWords(req, res, next) {
+  function sortObject(object) {
+    const sortingArray = [];
+    let property;
+    for (property in object) {
+      if (object.hasOwnProperty(property)) {
+        sortingArray.push({
+          word: property,
+          count: object[property],
+        });
+      }
+    }
+    sortingArray.sort((first, second) => {
+      return second.count - first.count;
+    });
+    return sortingArray;
+  }
+  const list = res.locals.sumWords;
+  const newarr = sortObject(list);
+  const slicedArr = newarr.slice(1, 21);
+  res.locals.sortedWords = slicedArr;
+  res.send(slicedArr);
+  next();
+  debugger;
+}
+
+router.get('/', hitAxios, tokenizeData, stopWords, sumWords, sortWords);
 
 module.exports = router;
