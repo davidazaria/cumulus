@@ -25,12 +25,17 @@ module.exports = {
     });
   },
   handleCreate(req, res) {
-    res.redirect('/about');
+    res.redirect('/');
   },
   handleUpdate(req, res) {
     res.redirect(`/users/${req.params.id}`);
   },
   handleDelete(req, res) {
     res.redirect('/users');
+  },
+  showResults(req, res) {
+    res.render('results/results-index', {
+      results: res.locals.sortedWords,
+    });
   },
 };

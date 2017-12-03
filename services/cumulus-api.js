@@ -4,11 +4,13 @@
 require('dotenv').config();
 const express = require('express');
 
-const router = express.Router();
+const cumulusRouter = express.Router();
 const axios = require('axios');
 const natural = require('natural');
 
 const tokenizer = new natural.WordTokenizer();
+
+const views = require('../controllers/viewController.js');
 
 const apikey = process.env.APIKEY;
 // hit the API and get back an array of results
@@ -91,13 +93,12 @@ function sortWords(req, res, next) {
   const newarr = sortObject(list);
   const slicedArr = newarr.slice(1, 31);
   res.locals.sortedWords = slicedArr;
+  console.log(slicedArr);
   res.send(slicedArr);
   next();
   debugger;
 }
 
+cumulusRouter.get('/', hitAxios, tokenizeData, stopWords, sumWords, sortWords, views.showResults);
 
-
-router.get('/', hitAxios, tokenizeData, stopWords, sumWords, sortWords);
-
-module.exports = router;
+module.exports = cumulusRouter;
