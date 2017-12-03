@@ -1,7 +1,39 @@
-body {
-  background-color: white;
+html, body {
+  height: 100%;
+  width: 100%;
+  margin-top: 150px;
+  text-align: center;
 }
 
 h1 {
-  font-size: 48px;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 40px;
+  color: black;
+  text-align: center;
+  display: inline;
+  margin-top: 200px;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+#links {
+  font-family: 'Roboto', sans-serif;
+  margin-top: 40px;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  text-align: center;
+  margin-top: -200px;
+}
+
+footer {
+  margin-top: 220px;
+  position: absolute;
 }

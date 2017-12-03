@@ -25,7 +25,7 @@ module.exports = {
     });
   },
   handleCreate(req, res) {
-    res.redirect('/users');
+    res.redirect('/about');
   },
   handleUpdate(req, res) {
     res.redirect(`/users/${req.params.id}`);
