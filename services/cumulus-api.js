@@ -19,6 +19,7 @@ const sw = require('stopword');
 /* this is my tokenizer which will break up my array of sentences into atomic words */
 const tokenizer = new natural.WordTokenizer();
 
+/* here i bring in my searchdb model to allow me the ability to inject my searches into the db */
 const searchDB = require('../models/searchesDB');
 
 /* this views required will hopefully eventually be used to utilize ejs functionality of my api call render */
@@ -114,7 +115,7 @@ function sortWords(req, res, next) {
         });
       }
     }
-    /* here i introfuce my sorting array to display those with the highest counts first */
+    /* here i introduce my sorting array to display those with the highest counts first */
     sortingArray.sort((first, second) => {
       return second.count - first.count;
     });
@@ -144,7 +145,6 @@ function stringifyWords(req, res, next) {
 
 /* this function injects each result string into the database */
 function injectSave(req, res, next) {
-  console.log(res.locals.words);
   searchDB.save(res.locals.words)
     .then(() => {
       next();
