@@ -132,8 +132,10 @@ function sortWords(req, res, next) {
 
 /* in this function i will attempt to stringify the words, taking them out of an array and using a join() method to break up its pieces and sending back a comma separated list of atomic words */
 function stringifyWords(req, res, next) {
+  /* here i am reassigning my res.locals.sortedWords object to a const i will then handle with a stringify method */
   const toDisplay = res.locals.sortedWords;
   const words = toDisplay.map((stringify) => {
+    /* here i am stringifying through a .map function the word property of my words object */
     return stringify.word;
   });
   /* the .join() method here allows me to comma separate and serialize the words after stringifying the words out of their original array */

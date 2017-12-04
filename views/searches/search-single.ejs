@@ -2,4 +2,11 @@
     <div class='search'>
     <p>result: <%= search.result %> </p>
     <p>date created: <%= search.date_created %> </p>
+      <form action="/searches/<%= search.id %>?_method=Delete" method="Post">
+    <input type="submit" value="delete"/>
+  </form>
+  <a href='/searches/'>see all cumulus searches</a>
+  <a href="/">go back to homepage</a>
+</div>
+
 <% include ../partials/footer %>
