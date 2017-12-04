@@ -30,8 +30,8 @@ function hitAxios(req, res, next) {
   })
   /* grab the articles from the response data */
     .then(({ data: { articles } }) => {
-    /* run through 1000 articles */
-      const matrix = articles.slice(1, 501)
+    /* run through 900 articles */
+      const matrix = articles.slice(1, 901)
       /* map over and extract only the description from each article */
         .map(({ description, title }) => title + description);
       res.locals.matrix = matrix;
@@ -129,6 +129,7 @@ function stringifyWords(req, res, next) {
   const words = toDisplay.map((stringify) => {
     return stringify.word;
   });
+  /* the .join() method here allows me to comma separate and serialize the words after stringifying the words out of their original array */
   res.send(words.join(', '));
   res.locals.words = words;
   next();
