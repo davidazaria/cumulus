@@ -35,7 +35,7 @@ module.exports = {
   },
   showResults(req, res) {
     res.render('results/results-index', {
-      results: res.locals.sortedWords,
+      results: res.locals.words,
     });
   },
 };

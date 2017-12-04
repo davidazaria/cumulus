@@ -92,13 +92,25 @@ function sortWords(req, res, next) {
   const list = res.locals.sumWords;
   const newarr = sortObject(list);
   const slicedArr = newarr.slice(1, 31);
+  slicedArr.toString();
   res.locals.sortedWords = slicedArr;
-  console.log(slicedArr);
-  res.send(slicedArr);
+  // res.send(slicedArr);
   next();
   debugger;
 }
 
-cumulusRouter.get('/', hitAxios, tokenizeData, stopWords, sumWords, sortWords, views.showResults);
+function stringifyWords(req, res, next) {
+  const toDisplay = res.locals.sortedWords;
+  const words = toDisplay.map((stringify) => {
+    return stringify.word;
+  });
+  words.toString();
+  res.locals.words = words;
+  res.send(words);
+  next();
+  debugger;
+}
+
+cumulusRouter.get('/', hitAxios, tokenizeData, stopWords, sumWords, sortWords, stringifyWords, views.showResults);
 
 module.exports = cumulusRouter;
