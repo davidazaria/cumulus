@@ -13,7 +13,7 @@ module.exports = {
     return db.many(`
       SELECT *
         FROM users
-      ORDER BY users.username ASC
+      ORDER BY users.id ASC
     `);
   },
 
