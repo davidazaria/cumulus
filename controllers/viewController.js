@@ -1,5 +1,6 @@
-module.exports = {
+/* exporting out my views from this controller file */
 
+module.exports = {
   show404(err, req, res, next) {
     res.sendStatus(404);
   },
@@ -33,6 +34,8 @@ module.exports = {
   handleDelete(req, res) {
     res.redirect('/users');
   },
+
+  /* the showResults method here is not yet working, but ideally it would render the results */
   showResults(req, res) {
     res.render('results/results-index', {
       results: res.locals.words,

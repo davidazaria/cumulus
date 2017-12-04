@@ -1,3 +1,5 @@
+/* this router is for my user crud flow */
+
 const express = require('express');
 const userController = require('../controllers/userController.js');
 const views = require('../controllers/viewController.js');

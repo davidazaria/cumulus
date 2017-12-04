@@ -26,13 +26,13 @@ TKTK
 
 ## Phases to completion
 
-Phase 1: Wireframming and story writing. **Due Wednesday November 29**
+Phase 1: Wireframming and story writing. **Due Wednesday November 29** **COMPLETED**
 
-Phase 2: Minimum viable product, which will consist of: basic API calls, Heroku Deployment, Routes, SQL table creations, and progress on the word cloud technolocy **Due Friday December 1**
+Phase 2: Minimum viable product, which will consist of: basic API calls, Heroku Deployment, Routes, SQL table creations, and progress on the word cloud technolocy **Due Friday December 1** **COMPLETED**
 
-Phase 3: Feature writing. **Due Saturday December 2**
+Phase 3: Feature writing. **Due Saturday December 2** **COMPLETED**
 
-Phase 4: Feature writing. **Due Sunday December 3** 
+Phase 4: Feature writing. **Due Sunday December 3** **COMPLETED**
 
 Phase 5: Feature writing and issues/bugs. **Due Monday December 4**
 
@@ -40,4 +40,6 @@ Phase 5: Feature writing and issues/bugs. **Due Monday December 4**
 
 ## Links and Resources
 
-TKTK
+Used the MDN documentation to help with a for...in function in my cumulus-api file. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
+Used the MDN documentation to help with a .join() method on stringifying words.
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join

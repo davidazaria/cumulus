@@ -1,3 +1,4 @@
+/* bringing in all of my required dependencies for my project */
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
@@ -7,21 +8,23 @@ const bodyParser = require('body-parser');
 const cumulusAPI = require('./services/cumulus-api');
 const usersRouter = require('./routes/userRoutes');
 
-/* create a PORT that checks the process.env or defaults to 3000 */
+/* create a port that checks the process.env or defaults to 3000 */
 const PORT = process.env.PORT || 3000;
 
-/* Start up express */
+/* start up express */
 const app = express();
 
 /* configure views */
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+/* setting up a static path for my css styles */
 app.use('/static', express.static(path.join(__dirname, 'static')));
 
 /* set up logging */
 app.use(logger('dev'));
 
+/* in the event i needed the bodyParser package, i have my app.use here */
 app.use(bodyParser.urlencoded({
   extended: false,
 }));
@@ -29,7 +32,7 @@ app.use(bodyParser.json());
 
 app.use(methodOverride('_method'));
 
-/* ROUTES */
+/* routes */
 app.use('/users', usersRouter);
 app.use('/cumulus-api', cumulusAPI);
 

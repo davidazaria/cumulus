@@ -22,3 +22,4 @@ rules:
   no-restricted-syntax: 0
   no-prototype-builtins: 0
   key-spacing: 0
+  max-len: 0
