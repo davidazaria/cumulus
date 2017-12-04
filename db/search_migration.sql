@@ -1,4 +1,4 @@
-\c cumulus;
+
 
 DROP TABLE IF EXISTS searches;
 
