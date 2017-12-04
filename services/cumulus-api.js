@@ -137,7 +137,6 @@ function stringifyWords(req, res, next) {
 }
 
 /* and as the router functions, here i set up the different pieces of the function to execute as a hit a slash */
-/* unfortunately, the views are not easily working */
 cumulusRouter.get('/', hitAxios, tokenizeData, stemWords, sumWords, sortWords, stringifyWords, views.showResults);
 
 module.exports = cumulusRouter;
