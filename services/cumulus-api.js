@@ -19,6 +19,7 @@ const sw = require('stopword');
 /* this is my tokenizer which will break up my array of sentences into atomic words */
 const tokenizer = new natural.WordTokenizer();
 
+const searchDB = require('../models/searchesDB');
 
 /* this views required will hopefully eventually be used to utilize ejs functionality of my api call render */
 const views = require('../controllers/viewController.js');
@@ -135,13 +136,24 @@ function stringifyWords(req, res, next) {
     return stringify.word;
   });
   /* the .join() method here allows me to comma separate and serialize the words after stringifying the words out of their original array */
-  words.join(', ');
-  res.locals.words = words;
+  const newWords = words.join(', ');
+  res.locals.words = newWords;
   next();
   debugger;
 }
 
+/* this function injects each result string into the database */
+function injectSave(req, res, next) {
+  console.log(res.locals.words);
+  searchDB.save(res.locals.words)
+    .then(() => {
+      next();
+      debugger;
+    })
+    .catch(err => next(err));
+}
+
 /* and as the router functions, here i set up the different pieces of the function to execute as a hit a slash */
-cumulusRouter.get('/', hitAxios, tokenizeData, stemWords, sumWords, sortWords, stringifyWords, views.showResults);
+cumulusRouter.get('/', hitAxios, tokenizeData, stemWords, sumWords, sortWords, stringifyWords, injectSave, views.showResults);
 
 module.exports = cumulusRouter;

@@ -2,7 +2,9 @@
 
 <% for (let search of searches) { %>
   <div class='search'>
-    <p> <%= searches %> </p>
+    <p>result: <%= search.result %> </p>
+    <p>date created: <%= search.date_created %> </p>
+    <a href='/searches/<%= search.id%>'>learn more about cumulus search</a>
   </div>
 <% } %>
 

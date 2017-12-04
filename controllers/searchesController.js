@@ -14,6 +14,7 @@ module.exports = {
   getOne(req, res, next) {
     searchDB.findById(req.params.id)
       .then((search) => {
+        console.log('hello');
         res.locals.search = search;
         next();
       })

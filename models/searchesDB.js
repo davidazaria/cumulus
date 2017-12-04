@@ -20,14 +20,14 @@ module.exports = {
       SELECT *
         FROM searches
         WHERE id = $1
+        RETURNING *
     `, id);
   },
 
   save(search) {
-    return db.one(`
+    return db.none(`
       INSERT INTO searches (result)
-      VALUES ($/results/)
-      RETURNING *
+      VALUES ($1)
       `, search);
   },
 

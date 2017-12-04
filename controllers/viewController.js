@@ -45,7 +45,7 @@ module.exports = {
     });
   },
   showOneSearch(req, res) {
-    res.render('search/search-single', {
+    res.render('searches/search-single', {
       search: res.locals.search,
     });
   },
