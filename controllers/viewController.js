@@ -46,7 +46,7 @@ module.exports = {
   },
   showOneSearch(req, res) {
     res.render('search/search-single', {
-      user: res.locals.user,
+      search: res.locals.search,
     });
   },
   handleSearchCreate(req, res) {

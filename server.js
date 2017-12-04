@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 const cumulusAPI = require('./services/cumulus-api');
 const usersRouter = require('./routes/userRoutes');
+const searchRouter = require('./routes/searchRoutes');
 
 /* create a port that checks the process.env or defaults to 3000 */
 const PORT = process.env.PORT || 3000;
@@ -35,6 +36,7 @@ app.use(methodOverride('_method'));
 /* routes */
 app.use('/users', usersRouter);
 app.use('/cumulus-api', cumulusAPI);
+app.use('/searches', searchRouter);
 
 app.get('/', (req, res) => {
   res.render('index', {
