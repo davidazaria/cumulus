@@ -6,7 +6,7 @@ Our world is a rather interconnected place these days - probably more so than we
 
 And in examining this binning of a world made up of different experiences, the news - and more specifically what even makes the news to begin with - is something that best accentuates the notion that we do continue to remain isolated in what we deem important to consume. Of course there are moments of tragic or, more hopefully, joyous world events which bring the world together; however, it is often the case what makes for news in Germany might not be the case in India; South Korea and not South Africa; and, an extreme example perhaps, is something reported as a big deal in North Carolina, while emitting the faintest of blips in neighboring South Carolina.  
 
-The aim of this application, in its current form, is to present a user a word cloud - referencing the name, cumulus - of news headlines around the world, and the importance of certain words in which they appear in those English-only (for now) headlines. With a sprinkle of data science, a few third party API calls, and a healthy dose of JavaScript and its far-extending remit of libraries, I hope to provide a user an interesting, and, more importantly, an easy-to-digest example of what we deem important globally, and how they themselves relate to the weighted display of those words. Do you agree with the importance of those words? If no, why not? Those are the kinds of questions I look to answer. 
+The aim of this application, in its current form, is to present a user a word cloud - referencing the name, cumulus - of news headlines around the world, and the importance of certain words in which they appear in those English-only (for now) headlines. With a sprinkle of data science, one third-party API call, and a healthy dose of JavaScript and its far-extending remit of libraries, I hope to provide a user an interesting, and, more importantly, an easy-to-digest example of what we deem important globally, and how they themselves relate to the weighted display of those words. Do you agree with the importance of those words? If no, why not? Those are the kinds of questions I look to answer. 
 
 ## My wireframe
 
@@ -22,7 +22,11 @@ On the back-end, I am envisaging the user session being logged. More work TK the
 
 ## How it works
 
-TKTK
+In terms how this works, in the project's current iteration I unfortunately needed to scrap the use of the data-science heavy TFIDF due to time and skill constraints given the priorities I had set for my project timeline. In its place I was able to successfully use my JavaScript skills to sum words and display them in count order to mimic what a TFIDF would more appropriately and more sophisticatedly accomplish. 
+
+Wordcloud packages were not particularly helpful in this instance. In a future iteration, I am planning on having a standing Python server where I can use some of their data viz packages to render a word cloud on my locally stored data. From there, write an API call to my JS server to render it on my browser.
+
+Currently, I am not storing the counts; however, I believe once I get the TFIDF running, then storing the counts of words is superfluous. 
 
 ## Phases to completion
 
@@ -34,12 +38,26 @@ Phase 3: Feature writing. **Due Saturday December 2** **COMPLETED**
 
 Phase 4: Feature writing. **Due Sunday December 3** **COMPLETED**
 
-Phase 5: Feature writing and issues/bugs. **Due Monday December 4**
+Phase 5: Feature writing and issues/bugs. **Due Monday December 4** **COMPLETED**
 
-**Presentation** **Tuesday December 5**
+**Presentation** **Tuesday December 5** **IN PROGRESS**
 
 ## Links and Resources
 
-Used the MDN documentation to help with a for...in function in my cumulus-api file. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
-Used the MDN documentation to help with a .join() method on stringifying words.
+Heroku app can be found here https://wdicumulus.herokuapp.com/
+
+Used this API for my news sources https://newsapi.org/
+
+Used the axios npm package for my API calls https://www.npmjs.com/package/axios
+
+Used the natural npm package to help with some of my data cleansing/sanitization, including tokenization https://www.npmjs.com/package/natural 
+
+Used the stopword npm package to help with implementing stopwords https://www.npmjs.com/package/stopword  
+
+Used the MDN documentation to help better implement the `reduce` function https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/reduce
+
+Used the MDN documentation to help with a `for...in` function in my cumulus-api.js file. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
+
+Used the MDN documentation to help with a `.join()` method on stringifying words.
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify

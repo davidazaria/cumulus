@@ -1,3 +1,5 @@
+/* below is my search router, which i will send to my server.js file allowing me to handle all past search functionality in my app */
+
 const express = require('express');
 const searchesController = require('../controllers/searchesController.js');
 const views = require('../controllers/viewController.js');

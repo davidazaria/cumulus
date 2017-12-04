@@ -6,8 +6,9 @@
 require('dotenv').config();
 const express = require('express');
 
-
 const cumulusRouter = express.Router();
+
+/* axios is my api calling package */
 const axios = require('axios');
 
 /* natural is my nlp package that will help with my stemmer and as intended the tfidf */
@@ -25,6 +26,7 @@ const searchDB = require('../models/searchesDB');
 /* this views required will hopefully eventually be used to utilize ejs functionality of my api call render */
 const views = require('../controllers/viewController.js');
 
+/* hiding my api key so pirates cannot steal it from me! */
 const apikey = process.env.APIKEY;
 
 /* hit the API and get back an array of results */

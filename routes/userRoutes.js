@@ -1,4 +1,4 @@
-/* this router is for my user crud flow */
+/* below is my users router, which i will send to my server.js file allowing me to handle all user crud functionality in my app */
 
 const express = require('express');
 const userController = require('../controllers/userController.js');

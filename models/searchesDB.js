@@ -1,3 +1,5 @@
+/* here is my model for handling my searchDB functionality, vis a vis finding all past searches; finding particular searches by id; saving the searches in the db; and finally deleting past searches */
+
 const pgp = require('pg-promise')({
   query: q => console.log(q.query),
 });

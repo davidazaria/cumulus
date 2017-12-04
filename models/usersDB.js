@@ -1,3 +1,5 @@
+/* here is my model for handling my userDB functionality, vis a vis finding all users; finding particular users by id; saving the user entries in the db; and finally deleting users */
+
 const pgp = require('pg-promise')({
   query: q => console.log(q.query),
 });

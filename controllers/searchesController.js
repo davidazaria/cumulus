@@ -1,3 +1,5 @@
+/* here is my searchController, which i will send on to my routes for appropriate handling based on the specified methods */
+
 const searchDB = require('../models/searchesDB');
 
 module.exports = {

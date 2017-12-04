@@ -1,3 +1,5 @@
+/* here is my userController, which i will send on to my routes for appropriate handling based on the specified methods */
+
 const userDB = require('../models/usersDB');
 
 module.exports = {

@@ -1,4 +1,4 @@
-// I will pass this information to my models files
+/* i will be passing this on to my dbmodel files for configuring up to my database */
 
 module.exports = process.env.DATABASE_URL || {
   host:     process.env.DB_HOST || 'localhost',

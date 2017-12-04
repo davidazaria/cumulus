@@ -25,7 +25,6 @@ app.use('/static', express.static(path.join(__dirname, 'static')));
 /* set up logging */
 app.use(logger('dev'));
 
-/* in the event i needed the bodyParser package, i have my app.use here */
 app.use(bodyParser.urlencoded({
   extended: false,
 }));
