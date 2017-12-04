@@ -16,11 +16,11 @@ module.exports = {
   },
 
   findById(id) {
+    console.log(id);
     return db.one(`
       SELECT *
         FROM searches
         WHERE id = $1
-        RETURNING *
     `, id);
   },
 
