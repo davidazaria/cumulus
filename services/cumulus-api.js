@@ -130,7 +130,7 @@ function stringifyWords(req, res, next) {
     return stringify.word;
   });
   /* the .join() method here allows me to comma separate and serialize the words after stringifying the words out of their original array */
-  res.send(words.join(', '));
+  words.join(', ');
   res.locals.words = words;
   next();
   debugger;

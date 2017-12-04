@@ -34,8 +34,6 @@ module.exports = {
   handleDelete(req, res) {
     res.redirect('/users');
   },
-
-  /* the showResults method here is not yet working, but ideally it would render the results */
   showResults(req, res) {
     res.render('results/results-index', {
       results: res.locals.words,
