@@ -1,3 +1,5 @@
+\c cumulus;
+
 DROP TABLE IF EXISTS searches;
 
 CREATE TABLE searches (
