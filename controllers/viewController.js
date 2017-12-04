@@ -39,4 +39,20 @@ module.exports = {
       results: res.locals.words,
     });
   },
+  showSearches(req, res) {
+    res.render('searches/search-index', {
+      searches: res.locals.searches,
+    });
+  },
+  showOneSearch(req, res) {
+    res.render('search/search-single', {
+      user: res.locals.user,
+    });
+  },
+  handleSearchCreate(req, res) {
+    res.redirect('/');
+  },
+  handleSearchDelete(req, res) {
+    res.redirect('/searches');
+  },
 };

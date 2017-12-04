@@ -9,9 +9,14 @@ const express = require('express');
 
 const cumulusRouter = express.Router();
 const axios = require('axios');
+
+/* natural is my nlp package that will help with my stemmer and as intended the tfidf */
 const natural = require('natural');
+
+/* this is my stopwords package which will help me, hopefully, remove words like the, and, is, or, etc. */
 const sw = require('stopword');
 
+/* this is my tokenizer which will break up my array of sentences into atomic words */
 const tokenizer = new natural.WordTokenizer();
 
 
