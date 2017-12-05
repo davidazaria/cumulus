@@ -26,7 +26,11 @@ In terms how this works, in the project's current iteration I unfortunately need
 
 Wordcloud packages were not particularly helpful in this instance. In a future iteration, I am planning on having a standing Python server where I can use some of their data viz packages to render a word cloud on my locally stored data. From there, write an API call to my JS server to render it on my browser.
 
-Currently, I am not storing the counts; however, I believe once I get the TFIDF running, then storing the counts of words is superfluous. 
+Currently, I am not storing the counts in the database; however, I believe once I get the TFIDF running, then storing the counts of words is superfluous. 
+
+A Postgres feature I did not fully invest much time into from a storage perspective is storing the top words from each result, utilizing the following SQL query which will help me split my comma-separated string (hence the ',' delimiter) and returning back the first items before the comma is found.
+
+`SELECT split_part(result, ',', 1) FROM searches`
 
 ## Phases to completion
 
@@ -40,7 +44,7 @@ Phase 4: Feature writing. **Due Sunday December 3** **COMPLETED**
 
 Phase 5: Feature writing and issues/bugs. **Due Monday December 4** **COMPLETED**
 
-**Presentation** **Tuesday December 5** **IN PROGRESS**
+**Presentation** **Tuesday December 5**
 
 ## Links and Resources
 
@@ -61,3 +65,7 @@ Used the MDN documentation to help with a `for...in` function in my cumulus-api.
 Used the MDN documentation to help with a `.join()` method on stringifying words.
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+
+Referenced the `quotes-api` repo for some of the MVC infrastructure https://git.generalassemb.ly/wdi-nyc-hamilton/quotes-api
+
+Further attribution to Jason Seminara, Kate Shishkina, J Silverstein, John Master, and my classmates for their help debugging/inspiring the app.
