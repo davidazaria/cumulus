@@ -50,6 +50,8 @@ Phase 5: Feature writing and issues/bugs. **Due Monday December 4** **COMPLETED*
 
 Heroku app can be found here https://wdicumulus.herokuapp.com/
 
+Local host PORT would be here http://localhost:3000/
+
 Used this API for my news sources https://newsapi.org/
 
 Used the axios npm package for my API calls https://www.npmjs.com/package/axios
