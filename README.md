@@ -39,13 +39,14 @@ To show first word before a comma is found:
 * Axios (npm package for API calls)
 * Body-Parser
 * Cheerio (npm package for parsing HTML - ended up deprecating)
+* Command Line
 * Debug 
 * Dotenv
 * EJS 
 * ESLint 
 * Express
 * Github
-* Heroko
+* Heroku
 * HTML/CSS
 * JavaScript
 * Method-Override
