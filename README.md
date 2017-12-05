@@ -30,7 +30,38 @@ Currently, I am not storing the counts in the database; however, I believe once 
 
 A Postgres feature I did not fully invest much time into from a storage perspective is storing the top words from each result, utilizing the following SQL query which will help me split my comma-separated string (hence the ',' delimiter) and returning back the first items before the comma is found.
 
+To show first word before a comma is found:
 `SELECT split_part(result, ',', 1) FROM searches`
+
+## Technologies used
+
+* 3rd party API call
+* Axios (npm package for API calls)
+* Body-Parser
+* Cheerio (npm package for parsing HTML - ended up deprecating)
+* Debug 
+* Dotenv
+* EJS 
+* ESLint 
+* Express
+* Github
+* Heroko
+* HTML/CSS
+* JavaScript
+* Method-Override
+* Morgan Logger
+* MVC architecture
+* Natural (npm package for data manipulation, including tokenizations and stemming)
+* Node.JS
+* Nodemon
+* Path
+* pg-promise
+* Postgres/SQL
+* Postman
+* stopword (npm package for adding stopwords)
+* Vue Wordcloud (npm package for word cloud - ended up deprecating)
+* Wordcloud (npm package for word cloud - ended up deprecating)
+
 
 ## Phases to completion
 
