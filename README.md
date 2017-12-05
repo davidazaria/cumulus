@@ -10,7 +10,7 @@ The aim of this application, in its current form, is to present a user a word cl
 
 ## My wireframe
 
-Wireframe can be found in the project repo, file labeled "cumulus-wireframe.pdf".
+Wireframe can be found in this project repo in the wireframe folder, with a file labeled "cumulus-wireframe.pdf".
 
 ## My initial thoughts on app structure
 
