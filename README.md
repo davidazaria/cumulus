@@ -76,13 +76,15 @@ Phase 4: Feature writing. **Due Sunday December 3** **COMPLETED**
 
 Phase 5: Feature writing and issues/bugs. **Due Monday December 4** **COMPLETED**
 
-**Presentation** **Tuesday December 5**
+Presentation **Tuesday December 5** **COMPLETED**
 
 ## Links and Resources
 
-Heroku app can be found here https://wdicumulus.herokuapp.com/
+Heroku app can be found here https://wdicumulus.herokuapp.com/ 
 
-Local host PORT would be here http://localhost:3000/
+* NB: The Heroku deployment, I believe, needs to be rethought. See `Issues` for more thoughts. 
+
+Local host PORT here would be: http://localhost:3000/
 
 Used this API for my news sources https://newsapi.org/
 
