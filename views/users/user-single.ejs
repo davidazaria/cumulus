@@ -1,12 +1,12 @@
 <% include ../partials/header %>
 
 <div class='user'>
-  <h2>username: <%= user.username %></h2>
-  <h2>password: <%= user.password %></h2>
-  <h2>fullname: <%= user.fullname %></h2>
+  <h3>username: <%= user.username %></h3>
+  <h3>password: <%= user.password %></h3>
+  <h3>fullname: <%= user.fullname %></h3>
   <a href="/users/<%= user.id %>/edit"> edit this cumulus user </a>
   <form action="/users/<%= user.id %>?_method=Delete" method="Post">
-    <input type="Submit" value="Delete"/>
+    <input type="Submit" value="delete"/>
   </form>
   <a href='/users/'>see all cumulus users</a>
 </div>

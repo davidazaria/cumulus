@@ -3,6 +3,7 @@ html, body {
   width: 100%;
   margin-top: 150px;
   text-align: center;
+  background-color: white;
 }
 
 h1 {
@@ -20,13 +21,24 @@ h2 {
   color: black;
   text-align: center;
   display: block;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 100px;
+}
+
+h3 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 14px;
+  font-weight: 0;
+  color: black;
+  text-align: center;
+  display: block;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 p {
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 20px;
 }
 
@@ -44,6 +56,6 @@ img {
 }
 
 footer {
-  margin-top: 220px;
+  margin-top: 160px;
   position: absolute;
 }
