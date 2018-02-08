@@ -22,7 +22,7 @@ h2 {
   text-align: center;
   display: block;
   margin-top: 50px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 h3 {
@@ -42,9 +42,29 @@ p {
   margin-top: 20px;
 }
 
-#links {
+.resulttag {
   font-family: 'Roboto', sans-serif;
-  margin-top: 40px;
+  font-size: 20px;
+}
+
+.button {
+  background-color: #474a4f;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+#intro {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
 }
 
 img {
@@ -58,4 +78,5 @@ img {
 footer {
   margin-top: 160px;
   position: absolute;
+  font-family: 'Roboto', sans-serif;
 }

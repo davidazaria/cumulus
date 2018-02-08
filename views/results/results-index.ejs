@@ -1,10 +1,10 @@
 <% include ../partials/header %>
 
 <h1> is here to present your results </h1>
-<p> here the returned words are displayed from the most common words to least, singling out the top thirty words currently found in global english-speaking news headlines </p>
+<p class="resulttag"> here the returned words are displayed from the most common words to least, singling out the top thirty words currently found in global english-speaking news headlines </p>
 <h2> <%= results %> </h2>
-<a href="/cumulus-api">hit api results again</a>
-<a href='/searches/'>see all past cumulus api searches</a>
-<a href="/">go back to homepage</a>
+<a href="/cumulus-api" class="button">hit api results again</a>
+<a href='/searches/' class="button">see all past cumulus api searches</a>
+<a href="/" class="button">go back to homepage</a>
 
 <% include ../partials/footer %>
