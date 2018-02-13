@@ -46,7 +46,7 @@ function hitAxios(req, res, next) {
       res.locals.matrix = matrix;
       next();
     })
-    .catch(err => res.send(err));
+    .catch(next);
   /* catch any errors from anything above */
 }
 
@@ -158,6 +158,6 @@ function injectSave(req, res, next) {
 }
 
 /* and as the router functions, here i set up the different pieces of the function to execute as a hit a slash */
-cumulusRouter.get('/', hitAxios, tokenizeData, stemWords, sumWords, sortWords, stringifyWords, injectSave, views.showResults);
+cumulusRouter.get('/', hitAxios, tokenizeData, stemWords, sumWords, sortWords, stringifyWords, injectSave, views.showResults, views.show404);
 
 module.exports = cumulusRouter;
