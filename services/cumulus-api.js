@@ -158,6 +158,8 @@ function injectSave(req, res, next) {
 }
 
 /* and as the router functions, here i set up the different pieces of the function to execute as a hit a slash */
-cumulusRouter.get('/', hitAxios, tokenizeData, stemWords, sumWords, sortWords, stringifyWords, injectSave, views.showResults, views.show404);
+cumulusRouter.get('/', hitAxios, tokenizeData, stemWords, sumWords, sortWords, stringifyWords, injectSave, views.showResults);
+
+cumulusRouter.use((err, req, res, next) => res.status(404).json(err));
 
 module.exports = cumulusRouter;
