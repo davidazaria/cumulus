@@ -82,7 +82,7 @@ Presentation **Tuesday December 5** **COMPLETED**
 
 Heroku app can be found here https://wdicumulus.herokuapp.com/ 
 
-* NB: The Heroku deployment, I believe, needs to be rethought. See `Issues` for more thoughts. 
+* NB: The Heroku deployment is currently deprecated as of 02/25/18 because of a yet unresolved issue. 
 
 Local host PORT here would be: http://localhost:3000/
 
